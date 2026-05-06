@@ -273,34 +273,35 @@ export default function Header() {
                                                 </> : null
                                         }
 
-
-                                        <div
-                                            className="w-9 h-9 rounded-full flex-shrink-0 border-2 border-white overflow-hidden flex items-center justify-center cursor-pointer hover:border-[var(--color-change)] transition-colors"
-                                            onClick={toggleDropdown}
-                                        >
-                                            <img
-                                                src={currentUser?.profilePic || authUser?.photo || stanUser}
-                                                className="w-full h-full object-cover object-top"
-                                                alt="User"
-                                            />
+                                        <div className='flex items-center gap-2 group'>
+                                            <div
+                                                className="w-9 h-9 rounded-full flex-shrink-0 border-2 border-white overflow-hidden flex items-center justify-center cursor-pointer group-hover:border-[var(--color-change)] transition-colors"
+                                                onClick={toggleDropdown}
+                                            >
+                                                <img
+                                                    src={currentUser?.profilePic || authUser?.photo || stanUser}
+                                                    className="w-full h-full object-cover object-top"
+                                                    alt="User"
+                                                />
+                                            </div>
+                                            <p
+                                                className='text-base lg:block hidden cursor-pointer group-hover:text-[var(--color-change)] transition-colors'
+                                                onClick={toggleDropdown}
+                                            >
+                                                {decryptData(name)?.split(" ")[0]}
+                                            </p>
                                         </div>
-                                        <p
-                                            className='text-base lg:block hidden cursor-pointer hover:text-[var(--color-change)] transition-colors'
-                                            onClick={toggleDropdown}
-                                        >
-                                            {decryptData(name)?.split(" ")[0]}
-                                        </p>
                                     </div>
 
 
                                     {isDropdownOpen && (
-                                        <div className="absolute right-0 mt-2 w-48 bg-[#221f2a] rounded-lg shadow-lg border border-gray-700 z-50">
+                                        <div className="absolute right-0 mt-2 w-48 bg-[#2a251f] rounded-lg shadow-lg border border-gray-700 z-50">
                                             <div className="py-2">
                                                 {isLoggedIn ? (
                                                     <>
                                                         <button
                                                             onClick={handleProfileClick}
-                                                            className="w-full px-4 py-2 text-left text-white hover:bg-[#2d2a35] transition-colors flex items-center gap-3"
+                                                            className="w-full px-4 py-2 text-left text-white hover:bg-[#35302a] transition-colors flex items-center gap-3"
                                                         >
                                                             <div className="w-5 h-5 rounded-full flex items-center justify-center">
                                                                 <img
@@ -325,7 +326,7 @@ export default function Header() {
 
                                                         <button
                                                             onClick={handleLogoutClick}
-                                                            className="w-full px-4 py-2 text-left text-white hover:bg-[#2d2a35] transition-colors flex items-center gap-3"
+                                                            className="w-full px-4 py-2 text-left text-white hover:bg-[#35302a] transition-colors flex items-center gap-3"
                                                         >
                                                             <MdLogout className="w-5 h-5 text-red-400" />
                                                             Logout
@@ -337,7 +338,7 @@ export default function Header() {
                                                             setIsDropdownOpen(false);
                                                             navigate('/login');
                                                         }}
-                                                        className="w-full px-4 py-2 text-left text-white hover:bg-[#2d2a35] transition-colors flex items-center gap-3"
+                                                        className="w-full px-4 py-2 text-left text-white hover:bg-[#35302a] transition-colors flex items-center gap-3"
                                                     >
                                                         <MdLogout className="w-5 h-5 text-red-400" />
                                                         Sign In
